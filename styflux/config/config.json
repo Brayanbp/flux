@@ -33,9 +33,10 @@
 		"styfluxFonts":"[@url]fonts/",
 		"routImg":"[@url]../img/",
 		"family1":"'lucidaRegular',Arial,sans-serif",
-		"family2":"'abrazRegular',Arial,sans-serif",
+		"family2":"'fortunecityRegular',Arial,sans-serif",
 		"family3":"Arial,sans-serif",
-		"Styflux":"17px 50%"
+		"Styflux":"0 0",
+		"arrow":"-104px 0"
 	},
 	"ignore":{
 	}
