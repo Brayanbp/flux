@@ -1,0 +1,454 @@
+include _head.jade
+body
+	.side-left
+		h1 STYFLUX
+	.menu-vertical
+		ul
+			li
+				a(href="javascript:;", title="Styflux") Styflux
+			li
+				a(href="javascript:;", title="Config.json") Config.json
+			li
+				a(href="javascript:;", title="Buttons") Buttons
+			li
+				a(href="javascript:;", title="Content") Content
+			li
+				a(href="javascript:;", title="Fonts") Fonts
+			li
+				a(href="javascript:;", title="Forms") Forms
+			li
+				a(href="javascript:;", title="Grids") Grids
+			li
+				a(href="javascript:;", title="Reset") Reset
+			li
+				a(href="javascript:;", title="Resources") Resources
+			li
+				a(href="javascript:;", title="Table") Table
+			li
+				a(href="javascript:;", title="Hacks") Hacks
+			li
+				a(href="javascript:;", title="Plugins") Plugins
+	.content
+		h2 CSS Styleguide
+		p Hola chicos, aca dejo lo que entendi del uso de styflux en un breve documento, espero ser clara y precisa, igual cualquier duda o sugerencia me informan...
+		p Para poder usarlo debemos escribir styflux -c en nuestra consola....
+		.box
+			h2 Config.json
+			p Este archivo se ubica en styflux/config , yo podría llamar a este archivo el cerebrito del styflux ya que aquí se declaran las variables entre otras configuraciones para administrar a tu necesidad el Styflux.
+			p 1. <strong>"compile"</strong> aquí indicamos donde se compilara(renderizara) nuestros estilos:
+			.code-box
+				pre
+					code.html
+						span "compile":{
+						span.pl	"ext":".styl",
+						span.pl	"cmd":"stylus -c",
+						span.pl	"cmdr":"-o",
+						span.pl	"route":"../css" 
+								span.gray &#47;&#47; esto varía segun nuestra ubicación de carpeta contenedora de css
+						span }
+			p 2. <strong>"layout"</strong> contiene la suma de los estilos que estan en styflux/view-helpers:
+			.code-box
+				pre
+					code.html
+						span "layouts":{<br>
+							"active":
+							span.purple true,<br>
+							"path":"./layouts",<br>
+							"compile":{
+						span.pl	"layout.styl":{
+						span.pl2 "helpers":{
+						span.pl3 "fonts":"fonts.styl", 
+							span.gray &#47;&#47; ejm: @font-face font_face("lucidaRegular")
+						span.pl3 "content":"content.styl", 
+							span.gray &#47;&#47; principales contenedores como: #wrapper .box .main
+						span.pl3 "reset":"reset.styl",
+						span.pl3 "grids":"grids.styl", 
+							span.gray &#47;&#47; medidas(ancho) recopiladas de nuestro diseño basada en un sistema de grillas
+						span.pl3 "buttons":"buttons.styl",
+						span.pl3 "forms":"forms.styl", 
+							span.gray &#47;&#47; etiquetas, clases, id que usamos para los formularios en general
+						span.pl3 "table":"table.styl", 
+							span.gray &#47;&#47; clases asignadas a table tr td
+						span.pl3 "plugins":"plugins.styl",
+						span.pl3 "resources":["resources.styl"], 
+							span.gray &#47;&#47; todas las clases reutilizables
+						span.pl3 "hacks":"[@ult]hacks.styl" 
+							span.gray &#47;&#47; clases para navegador IE
+						span.pl2 }
+						span.pl }
+						span }
+			p 3. <strong>"views"</strong> contiene la suma de los estilos que estan en styflux/views, esto lo usamos en caso de tener 2 tipos de vista para nuestro proyecto, por llamarlo de algún modo "Público" y "Privado":
+			.code-box
+				pre
+					code.html
+						span "views":{
+						span.pl	"path":"./views",
+						span.pl "pathCompile":"./views"
+						span }
+			p 4. <strong>"vars"</strong> en esta variable vamos a declarar ....., adicional a ello indicamos la position X/Y de nuestros icon-sets:
+			.code-box
+				pre
+					code.html
+						span "vars":{
+						span.pl	"styfluxFonts":"[@url]fonts/", 
+							span.gray &#47;&#47; es la ubicación de carpeta contenedora de las fuentes: .eot .svg .woff
+						span.pl	"routImg":"[@url]../img/",
+						span.pl	"family1":"'lucidaRegular',Arial,sans-serif", 
+							span.gray &#47;&#47; es recomendable no usar mas de 3 tipos de fuentes en un proyecto
+						span.pl	"family2":"'abrazRegular',Arial,sans-serif",
+						span.pl	"family3":"Arial,sans-serif",
+						span.pl	"Styflux":"17px 50%" 
+							span.gray &#47;&#47; en base a un imagen dentro del icon-set declaramos las posiciones x/y en una variable
+						span }
+		.box
+			h2 Forms
+			p Aquí armamos nuestros estilos con nombres convencionales, el objetivo es adaptarlos a todo tipo de formulario que se nos presente, ya sea verticales u horizontal manteniendo nuestra misma estructura html.
+			.code-box
+				pre
+					code.html
+						span 
+							span.fucsia form
+							|(
+							span.green id
+							|=
+							span.yellow "frmRegister"
+							|, 
+							span.green method
+							|=
+							span.yellow "post"
+							|, 
+							span.green action
+							|=
+							span.yellow "" 
+							|, 
+							span.green class
+							|=
+							span.yellow ""
+							|)
+							span.gray &#47;&#47; el nombre de la clase varía según lo requerido
+						span.pl	
+							span.yellow .frm-group 
+							span.gray &#47;&#47; clases asignadas para grupo de label e input
+						span.pl2
+							span.fucsia label
+							|(
+							span.green for
+							|=
+							span.yellow "txtName"
+							|)<br>
+						span.pl3
+							span.fucsia span
+							span.yellow .required 
+							|* <br>
+						span.pl3 | Nombres
+						span.pl2
+							span.fucsia input
+							|(
+							span.green type
+							|=
+							span.yellow "text"
+							|, 
+							span.green class
+							|=
+							span.yellow "medium"
+							|, 
+							span.green id
+							|=
+							span.yellow "txtName"
+							|, 
+							span.green placeholder
+							|=
+							span.yellow "Nombres"
+							)
+						span.pl	
+							span.yellow .frm-group
+						span.pl2
+							span.fucsia label
+							|(
+							span.green for
+							|=
+							span.yellow "txtEmail"
+							|)
+						span.pl3
+							span.fucsia span
+							span.yellow .required 
+							|* 
+						span.pl3 | Email
+						span.pl2
+							span.fucsia input
+							|(
+							span.green type
+							|=
+							span.yellow "text"
+							|, 
+							span.green class
+							|=
+							span.yellow "medium"
+							|, 
+							span.green id
+							|=
+							span.yellow "txtEmail"
+							|, 
+							span.green placeholder
+							|=
+							span.yellow "Email"
+							)
+						span.pl	
+							span.yellow .frm-group
+						span.pl2
+							span.fucsia label
+							|(
+							span.green for
+							|=
+							span.yellow "txtPassword"
+							|)
+						span.pl3
+							span.fucsia span
+							span.yellow .required 
+							|* 
+						span.pl3 | Contraseña
+						span.pl2
+							span.fucsia input
+							|(
+							span.green type
+							|=
+							span.yellow "password"
+							|, 
+							span.green class
+							|=
+							span.yellow "medium"
+							|, 
+							span.green id
+							|=
+							span.yellow "txtPassword"
+							|, 
+							span.green placeholder
+							|=
+							span.yellow "Contraseña"
+							)
+						span.pl
+							span.yellow .frm-group 
+							span.gray &#47;&#47; clases asignadas para grupo de label, input y select
+						span.pl2
+							span.fucsia label 
+							|Documento
+						span.pl2
+							span.yellow .frm-group-inline
+						span.pl3
+							span.yellow .frm-control
+						span.pl4
+							span.fucsia select
+							|(
+							span.green id
+							|=
+							span.yellow "selIdentity"
+							|, 
+							span.green class
+							|=
+							span.yellow "small"
+							|)
+						span.pl5
+							span.fucsia option 
+							|Seleccione
+						span.pl5
+							span.fucsia option 
+							|DNI
+						span.pl5
+							span.fucsia option 
+							|Pasaporte
+						span.pl3
+							span.yellow .frm-control
+						span.pl4
+							span.fucsia input
+							|(
+							span.green type
+							|=
+							span.yellow "text"
+							|, 
+							span.green class
+							|=
+							span.yellow "small"
+							|, 
+							span.green id
+							|=
+							span.yellow "txtDocument"
+							|)
+						span.pl
+							span.yellow .frm-group
+						span.pl2
+							span.fucsia label
+							|(
+							span.green for
+							|=
+							span.yellow "txaMessage"
+							|)
+						span.pl2
+							span.fucsia textarea
+							|(
+							span.green type
+							|=
+							span.yellow "textarea"
+							|, 
+							span.green class
+							|=
+							span.yellow "medium"
+							|, 
+							span.green id
+							|=
+							span.yellow "txaMessage"
+							|, 
+							span.green placeholder
+							|=
+							span.yellow "Escribir aquí su mensaje"
+							|)
+						span.pl
+							span.yellow .checkbox
+						span.pl2
+							span.fucsia label
+						span.pl3
+							span.fucsia input
+							|(
+							span.green type
+							|=
+							span.yellow "checkbox"
+							|)
+						span.pl3 | Quiero recibir boletin
+						span.pl
+							span.yellow .frm-group
+						span.pl2
+							span.fucsia button
+							|(
+							span.green type
+							|=
+							span.yellow "submit"
+							|, 
+							span.green id
+							|=
+							span.yellow "sbmSend"
+							|, 
+							span.green class
+							|=
+							span.yellow "btn"
+							|, 
+							span.green title
+							|=
+							span.yellow "Enviar"
+							|)
+		.demo
+			p Este es un formulario básico.
+			form(id="frmRegister", method="post", action="", class="frm-default")
+				.frm-group
+					label(for="txtName")
+						span.required * 
+						| Nombres
+					input(type="text", class="medium", id="txtName", placeholder="Nombres")
+				.frm-group
+					label(for="txtEmail")
+						span.required * 
+						| Email
+					input(type="text", class="medium", id="txtEmail", placeholder="Email")
+				.frm-group
+					label(for="txtPassword")
+						span.required * 
+						| Contraseña
+					input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
+				.frm-group
+					label Documento
+					.frm-group-inline
+						.frm-control
+							select(id="selIdentity", class="small")
+								option Seleccione
+								option DNI
+								option Pasaporte
+						.frm-control
+							input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
+				.frm-group
+					label(for="txaMessage")
+						span.required * 
+						| Mensaje
+					textarea(type="textarea", class="medium", id="txaMessage", placeholder="Escribir aquí su mensaje")
+				.checkbox
+					label
+						input(type="checkbox")
+						| Quiero recibir boletin
+				.frm-group
+					button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+		.demo
+			p Si queremos otra estructura visual de formulario solo le agregaremos a la etiqueta 
+				span.fucsia form 
+				|class=
+				span.bold "frm-horizontal"
+				|, sin cambiar la estructura html.
+			form(id="frmRegister", class="frm-horizontal", method="post", action="")
+				.frm-group
+					label(for="txtName")
+						span.required * 
+						| Nombres
+					input(type="text", class="medium", id="txtName", placeholder="Nombres")
+				.frm-group
+					label(for="txtEmail")
+						span.required * 
+						| Email
+					input(type="text", class="medium", id="txtEmail", placeholder="Email")
+				.frm-group
+					label(for="txtPassword")
+						span.required * 
+						| Contraseña
+					input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
+				.frm-group
+					label Documento
+					.frm-group-inline
+						.frm-control
+							select(id="selIdentity", class="small")
+								option Seleccione
+								option DNI
+								option Pasaporte
+						.frm-control
+							input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
+				.frm-group
+					label(for="txaMessage")
+						span.required * 
+						| Mensaje
+					textarea(type="textarea", class="medium", id="txaMessage", placeholder="Escribir aquí su mensaje")
+				.checkbox
+					label
+						input(type="checkbox")
+						| Quiero recibir boletin
+				.frm-group
+					button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+		.demo
+			p En la etiqueta 
+				span.fucsia form 
+				| agregamos class=
+				span.bold "frm-inline"
+				|.
+			form(id="frmRegister", class="frm-inline", method="post", action="")
+				.frm-group
+					label(for="txtName")
+						span.required * 
+						| Nombres
+					input(type="text", class="medium", id="txtName", placeholder="Nombres")
+				.frm-group
+					label(for="txtEmail")
+						span.required * 
+						| Email
+					input(type="text", class="medium", id="txtEmail", placeholder="Email")
+				.frm-group
+					label(for="txtPassword")
+						span.required * 
+						| Contraseña
+					input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
+				.frm-group
+					label Documento
+					.frm-group-inline
+						.frm-control
+							select(id="selIdentity", class="small")
+								option Seleccione
+								option DNI
+								option Pasaporte
+						.frm-control
+							input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
+				.frm-group
+					button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+
+
