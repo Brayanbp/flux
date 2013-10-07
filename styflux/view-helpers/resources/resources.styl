@@ -7,12 +7,12 @@
 	background #F7F7F9
 	float left
 	height 100%
-	margin-left 150px
+	margin-left 148px
 	position fixed
 	top 0
 	width 140px
 	ul
-		padding 15px
+		padding 15px 0
 		li
 			border-bottom 1px solid #fff
 			border-top 1px solid #E1E1E8
@@ -23,9 +23,11 @@
 		a
 			color #666
 			display block
-			padding 7px 0
+			padding 7px 0 7px 10px
 			&:hover
-				color #8376ae
+				background url(routImg+"bg.png") repeat #8376ae
+				color #fff
+				padding-left 20px
 				text-decoration none
 .code-box
 	background #000
@@ -37,7 +39,29 @@
 	padding 5px 20px
 	white-space pre-wrap
 pre
-	white-space nowrap	
+	white-space nowrap
+.demo
+	background #fff
+	border 1px solid #E8E8E8
+	margin-bottom 20px
+	padding 20px
+	p
+		margin-bottom 20px
+	&.last
+		margin-bottom 0
+.demo-group
+	*zoom 1
+	&:before,&:after
+		display table
+		content ""
+		line-height 0
+	&:after
+		clear both
+	.demo
+		float left
+		margin-left 20px
+		&:first-child
+			margin-left 0
 .gray
 	color #828282
 .purple
@@ -118,13 +142,6 @@ pre
 	border 1px solid #E8E8E8
 	margin-bottom 30px
 	padding 10px
-.demo
-	background #fff
-	border 1px solid #E8E8E8
-	margin-bottom 30px
-	padding 20px
-	p
-		margin-bottom 20px
 /**
 @module resources.css
 @submodule Opciones del admin : Contenedor de la opciones que van debajo del titulo

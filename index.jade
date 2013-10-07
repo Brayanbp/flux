@@ -96,7 +96,7 @@ body
 							span.gray &#47;&#47; es la ubicación de carpeta contenedora de las fuentes: .eot .svg .woff
 						span.pl	"routImg":"[@url]../img/",
 						span.pl	"family1":"'lucidaRegular',Arial,sans-serif", 
-							span.gray &#47;&#47; es recomendable no usar mas de 3 tipos de fuentes en un proyecto
+							span.gray &#47;&#47; es recomendable no usar mas de 3 tipos de fuentes
 						span.pl	"family2":"'fortunecityRegular',Arial,sans-serif",
 						span.pl	"family3":"Arial,sans-serif",
 						span.pl	"Styflux":"17px 50%" 
@@ -122,7 +122,9 @@ body
 						span.pl.blue width 
 							span.purple 980
 							span.fucsia px
-						span.pl.blue margin 0 auto
+						span.pl.blue margin 
+							span.purple 0 
+							| auto
 						span.green .row 
 							span.gray &#47;&#47; esta clase es para un contenedor de clases flotantes. 
 						span.pl
@@ -143,12 +145,33 @@ body
 							span.green :after
 						span.pl2.blue clear both
 		.box
-			h2 Forms
-			p Aquí armamos nuestros estilos con nombres convencionales, el objetivo es adaptarlos a todo tipo de formularios que se nos presente, ya sea verticales u horizontal manteniendo nuestra misma estructura html. Aquí una estructura en jade
+			h2 Fonts
+			p styflux/view-helpers/fonts : Indicamos los tipos de fuente que usaremos en 
+				span.bold fonts.styl 
+				| y guardamos las fuentes(.ttf, .eot, .svg, .woff) en 
+				span.bold css/fonts
+				| .
 			.code-box
 				pre
 					code.html
-						span 
+						span
+							span.fucsia @font-face
+						span.pl font_face (
+							span.yellow "lucidaRegular"
+							| ) 
+							span.gray &#47;&#47; a esto llamaremos family1
+						span.fucsia @font-face
+						span.pl font_face (
+							span.yellow "fortunecityRegular"
+							| ) 
+							span.gray &#47;&#47; a esto llamaremos family2
+		.box
+			h2 Forms
+			p styflux/view-helpers/forms : Aquí armamos nuestros estilos con nombres convencionales, el objetivo es adaptarlos a todo tipo de formularios que se nos presente, ya sea verticales u horizontal manteniendo nuestra misma estructura html. Aquí una estructura en jade
+			.code-box
+				pre
+					code.html
+						span
 							span.fucsia form
 							|(
 							span.green id
@@ -376,121 +399,125 @@ body
 							|=
 							span.yellow "Enviar"
 							|)
-		.demo
-			p Este es un formulario básico.
-			form(id="frmRegister", method="post", action="", class="frm-default")
-				.frm-group
-					label(for="txtName")
-						span.required * 
-						| Nombres
-					input(type="text", class="medium", id="txtName", placeholder="Nombres")
-				.frm-group
-					label(for="txtEmail")
-						span.required * 
-						| Email
-					input(type="text", class="medium", id="txtEmail", placeholder="Email")
-				.frm-group
-					label(for="txtPassword")
-						span.required * 
-						| Contraseña
-					input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
-				.frm-group
-					label Documento
-					.frm-group-inline
-						.frm-control
-							select(id="selIdentity", class="small")
-								option Seleccione
-								option DNI
-								option Pasaporte
-						.frm-control
-							input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
-				.frm-group
-					label(for="txaMessage")
-						span.required * 
-						| Mensaje
-					textarea(type="textarea", class="medium", id="txaMessage", placeholder="Escribir aquí su mensaje")
-				.checkbox
-					label
-						input(type="checkbox")
-						| Quiero recibir boletin
-				.frm-group
-					button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
-		.demo
-			p Si queremos otra estructura visual de formulario solo le agregaremos a la etiqueta 
-				span.fucsia form 
-				|class=
-				span.bold "frm-horizontal"
-				|, sin cambiar la estructura html.
-			form(id="frmRegister", class="frm-horizontal", method="post", action="")
-				.frm-group
-					label(for="txtName")
-						span.required * 
-						| Nombres
-					input(type="text", class="medium", id="txtName", placeholder="Nombres")
-				.frm-group
-					label(for="txtEmail")
-						span.required * 
-						| Email
-					input(type="text", class="medium", id="txtEmail", placeholder="Email")
-				.frm-group
-					label(for="txtPassword")
-						span.required * 
-						| Contraseña
-					input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
-				.frm-group
-					label Documento
-					.frm-group-inline
-						.frm-control
-							select(id="selIdentity", class="small")
-								option Seleccione
-								option DNI
-								option Pasaporte
-						.frm-control
-							input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
-				.frm-group
-					label(for="txaMessage")
-						span.required * 
-						| Mensaje
-					textarea(type="textarea", class="medium", id="txaMessage", placeholder="Escribir aquí su mensaje")
-				.checkbox
-					label
-						input(type="checkbox")
-						| Quiero recibir boletin
-				.frm-group
-					button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
-		.demo
-			p En la etiqueta 
-				span.fucsia form 
-				| agregamos class=
-				span.bold "frm-inline"
-				|.
-			form(id="frmRegister", class="frm-inline", method="post", action="")
-				.frm-group
-					label(for="txtName")
-						span.required * 
-						| Nombres
-					input(type="text", class="medium", id="txtName", placeholder="Nombres")
-				.frm-group
-					label(for="txtEmail")
-						span.required * 
-						| Email
-					input(type="text", class="medium", id="txtEmail", placeholder="Email")
-				.frm-group
-					label(for="txtPassword")
-						span.required * 
-						| Contraseña
-					input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
-				.frm-group
-					label Documento
-					.frm-group-inline
-						.frm-control
-							select(id="selIdentity", class="small")
-								option Seleccione
-								option DNI
-								option Pasaporte
-						.frm-control
-							input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
-				.frm-group
-					button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+			.demo-group
+				.demo
+					p Este es un formulario básico.
+					form(id="frmRegister", method="post", action="", class="frm-default")
+						.frm-group
+							label(for="txtName")
+								span.required * 
+								| Nombres
+							input(type="text", class="medium", id="txtName", placeholder="Nombres")
+						.frm-group
+							label(for="txtEmail")
+								span.required * 
+								| Email
+							input(type="text", class="medium", id="txtEmail", placeholder="Email")
+						.frm-group
+							label(for="txtPassword")
+								span.required * 
+								| Contraseña
+							input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
+						.frm-group
+							label Documento
+							.frm-group-inline
+								.frm-control
+									select(id="selIdentity", class="small")
+										option Seleccione
+										option DNI
+										option Pasaporte
+								.frm-control
+									input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
+						.frm-group
+							label(for="txaMessage")
+								span.required * 
+								| Mensaje
+							textarea(type="textarea", class="medium", id="txaMessage", placeholder="Escribir aquí su mensaje")
+						.checkbox
+							label
+								input(type="checkbox")
+								| Quiero recibir boletin
+						.frm-group
+							button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+				.demo
+					p Para obtener estructura horizontal solo le agregaremos a la etiqueta 
+						span.fucsia form <br>
+						|class=
+						span.bold "frm-horizontal"
+						|, sin cambiar la estructura html.
+					form(id="frmRegister", class="frm-horizontal", method="post", action="")
+						.frm-group
+							label(for="txtName")
+								span.required * 
+								| Nombres
+							input(type="text", class="medium", id="txtName", placeholder="Nombres")
+						.frm-group
+							label(for="txtEmail")
+								span.required * 
+								| Email
+							input(type="text", class="medium", id="txtEmail", placeholder="Email")
+						.frm-group
+							label(for="txtPassword")
+								span.required * 
+								| Contraseña
+							input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
+						.frm-group
+							label Documento
+							.frm-group-inline
+								.frm-control
+									select(id="selIdentity", class="small")
+										option Seleccione
+										option DNI
+										option Pasaporte
+								.frm-control
+									input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
+						.frm-group
+							label(for="txaMessage")
+								span.required * 
+								| Mensaje
+							textarea(type="textarea", class="medium", id="txaMessage", placeholder="Escribir aquí su mensaje")
+						.checkbox
+							label
+								input(type="checkbox")
+								| Quiero recibir boletin
+						.frm-group
+							button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+			.demo.last
+				p En la etiqueta 
+					span.fucsia form 
+					| agregamos class=
+					span.bold "frm-inline"
+					|.
+				form(id="frmRegister", class="frm-inline", method="post", action="")
+					.frm-group
+						label(for="txtName")
+							span.required * 
+							| Nombres
+						input(type="text", class="medium", id="txtName", placeholder="Nombres")
+					.frm-group
+						label(for="txtEmail")
+							span.required * 
+							| Email
+						input(type="text", class="medium", id="txtEmail", placeholder="Email")
+					.frm-group
+						label(for="txtPassword")
+							span.required * 
+							| Contraseña
+						input(type="password", class="medium", id="txtPassword", placeholder="Contraseña")
+					.frm-group
+						label Documento
+						.frm-group-inline
+							.frm-control
+								select(id="selIdentity", class="small")
+									option Seleccione
+									option DNI
+									option Pasaporte
+							.frm-control
+								input(type="text", class="small", id="txtDocument", placeholder="Número de Doc.")
+					.frm-group
+						button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
+		.box
+			h2 Grids
+			p styflux/view-helpers/grids : Aquí aplicaremos nuestros estilos en base a un sistema de grillas.
 
 
