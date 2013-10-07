@@ -104,14 +104,44 @@ body
 						span }
 		.box
 			h2 Buttons
-			p Tendremos el control total de nuestros botones a partir de una clase llamada 
+			p styflux/view-helpers/buttons : Tendremos el control total de nuestros botones a partir de una clase llamada 
 				span.bold "btn" 
-				| y sus tamaños mapeados según diseño.
+				| y sus tamaños mapeados según diseño. 
 			.btn-group
 				a(class="btn", title="Btn Default", href="javascript:;") Btn Default
 				a(class="btn btn-sm", title="Btn Small", href="javascript:;") Btn Small
 				a(class="btn btn-md", title="Btn Medium", href="javascript:;") Btn Medium
 				a(class="btn btn-lg", title="Btn Large", href="javascript:;") Btn Large
+		.box
+			h2 Content
+			p styflux/view-helpers/content : Aquí colocamos las clases para nuestros contenedores principales:
+			.code-box
+				pre
+					code.html
+						span.green #wrapper
+						span.pl.blue width 
+							span.purple 980
+							span.fucsia px
+						span.pl.blue margin 0 auto
+						span.green .row 
+							span.gray &#47;&#47; esta clase es para un contenedor de clases flotantes. 
+						span.pl
+							span.fucsia *
+							| zoom 
+							span.purple 1
+						span.pl &amp;
+							span.green :before
+							| ,&amp; 
+							span.green :after
+						span.pl2.blue display 
+							span.fucsia table
+						span.pl2.blue content 
+							span.yellow ""
+						span.pl2.blue line-height 
+							span.purple 0
+						span.pl &amp;
+							span.green :after
+						span.pl2.blue clear both
 		.box
 			h2 Forms
 			p Aquí armamos nuestros estilos con nombres convencionales, el objetivo es adaptarlos a todo tipo de formularios que se nos presente, ya sea verticales u horizontal manteniendo nuestra misma estructura html. Aquí una estructura en jade
