@@ -104,7 +104,7 @@ body
 						span }
 		.box
 			h2 Buttons
-			p styflux/view-helpers/buttons : Tendremos el control total de nuestros botones a partir de una clase llamada 
+			p styflux/view-helpers/buttons/buttons.styl : Tendremos el control total de nuestros botones a partir de una clase llamada 
 				span.bold "btn" 
 				| y sus tamaños mapeados según diseño. 
 			.btn-group
@@ -114,7 +114,7 @@ body
 				a(class="btn btn-lg", title="Btn Large", href="javascript:;") Btn Large
 		.box
 			h2 Content
-			p styflux/view-helpers/content : Aquí colocamos las clases para nuestros contenedores principales:
+			p styflux/view-helpers/content/content.styl : Aquí colocamos las clases para nuestros contenedores principales:
 			.code-box
 				pre
 					code.html
@@ -146,7 +146,7 @@ body
 						span.pl2.blue clear both
 		.box
 			h2 Fonts
-			p styflux/view-helpers/fonts : Indicamos los tipos de fuente que usaremos en 
+			p styflux/view-helpers/fonts/fonts.styl : Indicamos los tipos de fuente que usaremos en 
 				span.bold fonts.styl 
 				| y guardamos las fuentes(.ttf, .eot, .svg, .woff) en 
 				span.bold css/fonts
@@ -167,7 +167,7 @@ body
 							span.gray &#47;&#47; a esto llamaremos family2
 		.box
 			h2 Forms
-			p styflux/view-helpers/forms : Aquí armamos nuestros estilos con nombres convencionales, el objetivo es adaptarlos a todo tipo de formularios que se nos presente, ya sea verticales u horizontal manteniendo nuestra misma estructura html. Aquí una estructura en jade
+			p styflux/view-helpers/forms/forms.styl : Aquí armamos nuestros estilos con nombres convencionales, el objetivo es adaptarlos a todo tipo de formularios que se nos presente, ya sea verticales u horizontal manteniendo nuestra misma estructura html. Aquí una estructura en jade
 			.code-box
 				pre
 					code.html
@@ -518,7 +518,7 @@ body
 						button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
 		.box
 			h2 Grids
-			p styflux/view-helpers/grids : Aquí aplicaremos nuestros estilos en base a un sistema de grillas, como estos divs serán flotantes irán dentro de un div con class=  
+			p styflux/view-helpers/grids/grids.styl : Aquí aplicaremos nuestros estilos en base a un sistema de grillas, como estos divs serán flotantes irán dentro de un div con class=  
 				span.bold "row" 
 				| (el cual tenemos en content.styl).
 			.code-box
@@ -550,7 +550,7 @@ body
 							span.fucsia px 
 							span.gray &#47;&#47; vas agregando medidas según tu diseño
 			.demo
-				p En este ejemplo, mostramos 3 grillas en el contenedor 
+				p En este ejemplo, mostramos grillas en el contenedor 
 					span.bold div class="row"
 				.row
 					.grids-3 .grids-3
@@ -566,6 +566,61 @@ body
 					.grids-4 .grids-4
 		.box
 			h2 Reset
-			p styflux/view-helpers/reset : Aquí a
+			p styflux/view-helpers/reset/reset.styl : Son estilos que planteamos al comienzo de un documento HTML, y cuya función es la de minimizar, en la medida de lo posible, las múltiples diferencias visuales que se dan a la hora de mostrar una misma página web, en diferentes navegadores.
+			.code-box
+				pre
+					code.html
+						span
+							span.fucsia article
+							| ,
+							span.fucsia aside
+							| ,
+							span.fucsia footer
+							| ,
+							span.fucsia header
+							| ,
+							span.fucsia nav
+							| ,
+							span.fucsia section
+						span.pl.blue display block
+						span.fucsia html
+						span.pl.blue height 
+							span.purple 100
+							span.fucsia%
+						span.pl.blue font-size 
+							span.purple 100
+							span.fucsia %
+						span.pl -webkit-
+							span.blue text
+							span.fucsia -
+							| size
+							span.fucsia -
+							| adjust 
+							span.purple 100
+							span.fucsia %
+						span.pl -ms-
+							span.blue text
+							span.fucsia -
+							| size
+							span.fucsia -
+							| adjust 
+							span.purple 100
+							span.fucsia %
+						span.pl.blue padding 
+							span.purple 0
+						span.pl.blue margin 
+							span.purple 0
+		.box
+			h2 Resources
+			p styflux/view-helpers/resources/resources.styl : Son estilos
+		.box
+			h2 Table
+			p styflux/view-helpers/table/table.styl : Son estilos
+		.box
+			h2 Hacks
+			p styflux/view-helpers/hacks/hacks.styl : Son estilos
+		.box
+			h2 Plugins
+			p styflux/view-helpers/plugins/plugins.styl : Son estilos
 
 
