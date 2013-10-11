@@ -518,7 +518,9 @@ body
 						button(type="submit", id="sbmSend", class="btn", title="Enviar") Enviar
 		.box
 			h2 Grids
-			p styflux/view-helpers/grids : Aquí aplicaremos nuestros estilos en base a un sistema de grillas.
+			p styflux/view-helpers/grids : Aquí aplicaremos nuestros estilos en base a un sistema de grillas, como estos divs serán flotantes irán dentro de un div con class=  
+				span.bold "row" 
+				| (el cual tenemos en content.styl).
 			.code-box
 				pre
 					code.html
@@ -538,14 +540,32 @@ body
 						span.pl.blue width 
 							span.purple 220
 							span.fucsia px
-						span.green .grids-6
+						span.green .grids-4
 						span.pl.blue width 
-							span.purple 460
+							span.purple 300
 							span.fucsia px
-						span.green .grids-9
+						span.green .grids-8
 						span.pl.blue width 
-							span.purple 700
+							span.purple 620
 							span.fucsia px 
 							span.gray &#47;&#47; vas agregando medidas según tu diseño
+			.demo
+				p En este ejemplo, mostramos 3 grillas en el contenedor 
+					span.bold div class="row"
+				.row
+					.grids-3 .grids-3
+					.grids-3 .grids-3
+					.grids-3 .grids-3
+					.grids-3 .grids-3
+				.row
+					.grids-4 .grids-4
+					.grids-4 .grids-4
+					.grids-4 .grids-4
+				.row
+					.grids-8 .grids-8
+					.grids-4 .grids-4
+		.box
+			h2 Reset
+			p styflux/view-helpers/reset : Aquí a
 
 
