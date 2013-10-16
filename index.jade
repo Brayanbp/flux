@@ -178,6 +178,10 @@ body
 							|=
 							span.yellow "frmRegister"
 							|, 
+							span.green name
+							|=
+							span.yellow "frmRegister"
+							|, 
 							span.green method
 							|=
 							span.yellow "post"
@@ -402,7 +406,7 @@ body
 			.demo-group
 				.demo
 					p Este es un formulario básico.
-					form(id="frmRegister", method="post", action="", class="frm-default")
+					form(id="frmRegister", name="frmRegister", method="post", action="", class="frm-default")
 						.frm-group
 							label(for="txtName")
 								span.required * 
